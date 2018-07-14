@@ -1,5 +1,5 @@
 # API Key
-./src/config.js
+src/config.js
 
 # Logs
 logs
