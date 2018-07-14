@@ -1,4 +1,14 @@
-import str from './models/Search'
-import { add, multiply, ID } from './views/searchView'
+import axios from 'axios'
+import { key, proxy } from '../config.js';
 
-console.log(`Using imported functions! ${add(ID, 2)} and ${multiply(3,5)}. ${str}`)
+async function getResults(query) {
+  console.log(process.env)
+  try {
+    const res = await axios(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
+    const recipes = res.data.recipes
+    console.log(recipes)
+  } catch(error) {
+    alert(error)
+  }
+}
+getResults('pizza')
